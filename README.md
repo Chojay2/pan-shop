@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### SELISE Pan Dokan Portal
 
-## Getting Started
+Welcome to SELISE Pan Dokan Portal, your one-stop solution for creating and managing online shops and making purchases conveniently. This README file provides an overview of the features and functionalities offered by our portal.
+
+### Features
+
+## For Sellers
+
+# User Story 1: Create Shop
+
+Sellers can submit a request to create their shop.
+Admin approval is required for shop creation.
+Sellers provide necessary details such as shop name, category, price, and upload an image.
+Approved shops become visible on the portal.
+For Employees/Buyers
+
+# User Story 2: Browse Shop Listings
+
+Employees can view a list of all available shops.
+Shops can be filtered by category.
+Detailed view of shop items with necessary details.
+
+# User Story 3: Manage Orders
+
+Employees can add items to their cart from multiple shops.
+Total price of items in the cart is displayed.
+Ability to review and edit items in the cart before checkout.
+Orders can be submitted for processing.
+
+# User Story 4: Give Reviews and Ratings
+
+Employees can provide ratings and write reviews for purchased items.
+Reviews and ratings are visible to other users.
+Accounting Module
+
+# User Story 5: View Accounting Records
+
+Sellers have access to an accounting section.
+Records of transactions and sales related to their shop are available.
+Additional Features
+
+# User Story 6: Award Highest Buyer
+
+The system automatically tracks purchases made by employees.
+Identifies and awards the employee with the highest purchase amount within a specific period.
+
+### Getting Started
+
+To get started with SELISE Pan Dokan Portal, follow these steps:
+
+Sign up as a seller or an employee/buyer.
+Explore available shops and their products.
+Add items to your cart and proceed to checkout.
+Leave reviews and ratings for purchased items.
+Sellers can access accounting records and manage their shops efficiently.
+Feedback
+We value your feedback! If you have any suggestions, feature requests, or encounter any issues, please reach out to our support team.
+
+Thank you for choosing SELISE Pan Dokan Portal! Happy shopping and selling! 🛒💼
+
+## #Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
+yarn
+
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
