@@ -4,7 +4,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { toast } from 'sonner';
 import UserApiService from '@/api/user.api';
-import TextField from '@/components/text-field';
+import PdInput from '@/components/ui-kit/input';
 import { department } from '@/model/user.model';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
@@ -36,7 +36,7 @@ function SingUp() {
     role: '',
     department: '',
   };
-  const registerUser = async (values) => {
+  const registerUser = async (values: any) => {
     toast.loading('Submitting...', { id: 'loading' });
     const { password, confirmPassword, ...userValues } = values;
 
@@ -51,7 +51,7 @@ function SingUp() {
       toast.dismiss('loading');
 
       toast.success('User added successfully');
-    } catch (error) {
+    } catch (error: any) {
       toast.dismiss('loading');
       if (error.code === 'auth/email-already-in-use') {
         toast.error(
@@ -75,19 +75,19 @@ function SingUp() {
           <div>
             <h1 className="">Signup</h1>
             <Form className="form p-3">
-              <TextField
+              <PdInput
                 type="text"
                 label="name"
                 name="name"
                 placeholder="Lorem"
               />
-              <TextField
+              <PdInput
                 type="email"
                 name="email"
                 label="Email"
                 placeholder="loremipsum@gmail.com"
               />
-              <TextField
+              <PdInput
                 type="password"
                 name="password"
                 label="Password"
