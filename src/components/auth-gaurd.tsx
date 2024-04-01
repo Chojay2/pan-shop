@@ -50,6 +50,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({
   ]);
 
   if (isLoading) {
+    // TODO UI:loader here
     return <div>Loading...</div>;
   }
 
