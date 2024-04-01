@@ -20,7 +20,6 @@ function SingIn() {
   const { isSeller } = useUsersAuthority();
 
   const signInUser = async (values) => {
-    console.log(values);
     try {
       toast.loading('Signing in...', { id: 'loading' });
       const userCredentials = await UserApiService.signInUser(values);
