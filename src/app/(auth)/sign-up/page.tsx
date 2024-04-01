@@ -4,9 +4,10 @@ import React from 'react';
 import * as Yup from 'yup';
 import { toast } from 'sonner';
 import UserApiService from '@/api/user.api';
-import PdInput from '@/components/ui-kit/input';
+import { PdInput } from '@/components/ui-kit/input';
 import { department } from '@/model/user.model';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { PdInputWithLabel } from '@/components/ui-kit/input-with-label';
 
 function SingUp() {
   const validate = Yup.object({
@@ -75,19 +76,19 @@ function SingUp() {
           <div>
             <h1 className="">Signup</h1>
             <Form className="form p-3">
-              <PdInput
+              <PdInputWithLabel
                 type="text"
                 label="name"
                 name="name"
                 placeholder="Lorem"
               />
-              <PdInput
+              <PdInputWithLabel
                 type="email"
                 name="email"
                 label="Email"
                 placeholder="loremipsum@gmail.com"
               />
-              <PdInput
+              <PdInputWithLabel
                 type="password"
                 name="password"
                 label="Password"

@@ -20,6 +20,7 @@ function SingIn() {
   const { isSeller } = useUsersAuthority();
 
   const signInUser = async (values) => {
+    console.log(values);
     try {
       toast.loading('Signing in...', { id: 'loading' });
       const userCredentials = await UserApiService.signInUser(values);
@@ -100,18 +101,20 @@ function SingIn() {
             onSubmit={(values) => signInUser(values)}
           >
             {(props) => (
-              <form className="bg-white rounded pt-[24px] pb-[32px] mb-[16px]">
+              <Form className="bg-white rounded pt-[24px] pb-[32px] mb-[16px]">
                 <div className="mb-[16px]">
-                  <PdInputWithLabel
+                  <PdInput
                     label="USER NAME"
                     type="text"
                     placeholder="Username"
+                    name="email"
                   />
                 </div>
                 <div className="mb-[24px]">
-                  <PdInputWithLabel
+                  <PdInput
                     label="PASSWORD"
                     type="password"
+                    name="password"
                     placeholder="******************"
                   />
                   <p className="text-xs text-gray-500 mt-[8px]">
@@ -122,7 +125,7 @@ function SingIn() {
                 <div className="flex flex-col items-center justify-between w-full">
                   <button
                     className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-[8px] px-[16px] mb-[16px] rounded-full focus:outline-none focus:shadow-outline"
-                    type="button"
+                    type="submit"
                   >
                     Sign In
                   </button>
@@ -131,13 +134,13 @@ function SingIn() {
                     <span className="text-[#FF503F]">Sign Up</span>
                   </p>
                 </div>
-                {/* {isSeller && (
-            <div>
-              logged in
-              <button onClick={() => logOut()}>log out</button>
-            </div>
-          )} */}
-              </form>
+                {isSeller && (
+                  <div>
+                    logged in
+                    <button onClick={() => logOut()}>log out</button>
+                  </div>
+                )}
+              </Form>
             )}
           </Formik>
         </div>
