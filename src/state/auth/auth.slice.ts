@@ -1,4 +1,3 @@
-// src/state/authSlice.ts
 import { auth } from '@/firebase/clientApp';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
