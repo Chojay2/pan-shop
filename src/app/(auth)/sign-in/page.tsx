@@ -9,10 +9,12 @@ import UserApiService from '@/api/user.api';
 import { logOutUser, setUser } from '@/state/auth/auth.slice';
 import useUsersAuthority from '@/hooks/use-users-authority';
 import { PdInput } from '@/components/ui-kit/input';
-import { PdInputWithLabel } from '@/components/ui-kit/input-with-label';
+import PdButton from '@/components/ui-kit/button';
+import SignInForm from '@/components/auth/sign-in/sign-in-form';
+import SignUpForm from '@/components/auth/sign-up/sign-up-form';
 
 function SingIn() {
-  const iniatialValues = {
+  const initialValues = {
     email: '',
     password: '',
   };
@@ -56,21 +58,14 @@ function SingIn() {
           </div>
 
           <section className="grid grid-cols-4 grid-rows-2 mb-[80px]">
-            {[
-              '#FDDFD9',
-              '#FFFFFF',
-              '#F5BBAA',
-              '#FDDFD9',
-              '#FFFFFF',
-              '#FDDFD9',
-              '#FF6F61',
-              '#FCF1E8',
-            ].map((color, index) => (
-              <div
-                key={`${index}-${color}`}
-                className={`bg-[${color}] h-[189px]`}
-              ></div>
-            ))}
+            <div className="bg-[#FDDFD9] h-[189px]"></div>
+            <div className="bg-[#FFFFFF] h-[189px]"></div>
+            <div className="bg-[#F5BBAA] h-[189px]"></div>
+            <div className="bg-[#FDDFD9] h-[189px]"></div>
+            <div className="bg-[#FFFFFF] h-[189px]"></div>
+            <div className="bg-[#FDDFD9] h-[189px]"></div>
+            <div className="bg-[#FF6F61] h-[189px]"></div>
+            <div className="bg-[#FCF1E8] h-[189px]"></div>
           </section>
 
           <section className="text-left mb-[40px] pt-[32px] pl-[64px] space-y-8">
@@ -96,51 +91,10 @@ function SingIn() {
         <div className="w-full px-[32px] lg:px-0 max-w-lg">
           <h2 className="text-start text-xl font-bold mb-[16px]">Login</h2>
           <Formik
-            initialValues={iniatialValues}
+            initialValues={initialValues}
             onSubmit={(values) => signInUser(values)}
           >
-            {(props) => (
-              <Form className="bg-white rounded pt-[24px] pb-[32px] mb-[16px]">
-                <div className="mb-[16px]">
-                  <PdInput
-                    label="USER NAME"
-                    type="text"
-                    placeholder="Username"
-                    name="email"
-                  />
-                </div>
-                <div className="mb-[24px]">
-                  <PdInput
-                    label="PASSWORD"
-                    type="password"
-                    name="password"
-                    placeholder="******************"
-                  />
-                  <p className="text-xs text-gray-500 mt-[8px]">
-                    Forgot Password?{' '}
-                    <span className="text-[#FF503F]">Click Here</span>
-                  </p>
-                </div>
-                <div className="flex flex-col items-center justify-between w-full">
-                  <button
-                    className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-[8px] px-[16px] mb-[16px] rounded-full focus:outline-none focus:shadow-outline"
-                    type="submit"
-                  >
-                    Sign In
-                  </button>
-                  <p className="text-xs text-gray-500 mt-[8px]">
-                    Don`t have a account?{' '}
-                    <span className="text-[#FF503F]">Sign Up</span>
-                  </p>
-                </div>
-                {isSeller && (
-                  <div>
-                    logged in
-                    <button onClick={() => logOut()}>log out</button>
-                  </div>
-                )}
-              </Form>
-            )}
+            {(props) => <SignInForm />}
           </Formik>
         </div>
       </div>
