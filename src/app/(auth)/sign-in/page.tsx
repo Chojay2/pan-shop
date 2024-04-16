@@ -1,11 +1,10 @@
 'use client';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import { toast } from 'sonner';
-import { RootState } from '@/state/store';
 import UserApiService from '@/api/user.api';
-import { logOutUser, setUser } from '@/state/auth/auth.slice';
+import { setUser } from '@/state/auth/auth.slice';
 import useUsersAuthority from '@/hooks/use-users-authority';
 import SignInForm from '@/components/auth/sign-in/sign-in-form';
 
@@ -16,12 +15,13 @@ function SingIn() {
   };
 
   const { isSeller } = useUsersAuthority();
+  const dispatch = useDispatch();
 
   const signInUser = async (values) => {
     try {
       toast.loading('Signing in...', { id: 'loading' });
-      const userCredentials = await UserApiService.signInUser(values);
-
+      const uid = await UserApiService.signInUser(values);
+      dispatch(setUser(uid));
       toast.dismiss('loading');
       toast.success('Signed In successfully');
     } catch (error) {
@@ -48,9 +48,9 @@ function SingIn() {
       >
         <div className="flex flex-col h-full space-y-0">
           <div className="bg-white h-[128px] py-[32px] pl-[64px]">
-            <text className="text-center text-[#EC1C24] text-4xl font-bold mt-[40px] mb-[40px]">
+            <p className=" text-[#EC1C24] text-4xl font-bold mt-[40px] mb-[40px]">
               Selise Pan Dokan
-            </text>
+            </p>
           </div>
 
           <section className="grid grid-cols-4 grid-rows-2 mb-[80px]">
