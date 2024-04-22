@@ -1,31 +1,20 @@
-import React from 'react';
+import { useState } from 'react';
 import { Form } from 'formik';
 import PdButton from '@/components/ui-kit/button';
 import { PdInput } from '@/components/ui-kit/input';
-import PdRadioButton from '@/components/ui-kit/radio-button';
-import { department } from '@/model/user.model';
-
-const purposeOptions = [
-  {
-    label: 'Admin',
-    value: 'admin',
-  },
-  {
-    label: 'Seller',
-    value: 'seller',
-  },
-  {
-    label: 'Buyer',
-    value: 'buyer',
-  },
-];
-
-const departmentOptions = Object.keys(department).map((key) => ({
-  label: key,
-  value: key,
-}));
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from '@/components/ui-kit/dropdown-menu';
 
 const SignUpForm: React.FC = () => {
+  const [purpose, setPurpose] = useState('');
+
+  const [department, setDepartment] = useState('');
+
   return (
     <Form className="bg-white rounded pt-[24px] pb-[32px] mb-[16px] space-y-4">
       <div className="mb-[16px]">
@@ -61,34 +50,81 @@ const SignUpForm: React.FC = () => {
         />
       </div>
       <div className="flex items-center space-x-4">
-        <div className="mb-[16px]">
-          <label className="block text-sm font-medium text-gray-700 mb-[16px]">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-[8px]">
             What role will you be playing in our platform?
           </label>
           <div className="flex flex-row items-center space-x-4">
-            <PdRadioButton
-              id="purpose"
-              name="purpose"
-              label="purpose"
-              isMultiple={true}
-              options={purposeOptions}
-            />
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <PdButton
+                  type="button"
+                  className="mt-1 block w-full p-2 text-black text-sm hover:text-white font-normal bg-transparent border border-gray-300 rounded-md"
+                >
+                  {purpose || 'Select Purpose'}
+                </PdButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuRadioGroup
+                  value={purpose}
+                  onValueChange={setPurpose}
+                >
+                  <DropdownMenuRadioItem value="admin">
+                    Admin
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="seller">
+                    Seller
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="buyer">
+                    Buyer
+                  </DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </div>
       <div className="flex items-center space-x-4">
-        <div className="mb-[16px]">
-          <label className="block text-sm font-medium text-gray-700 mb-[16px]">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-[8px]">
             Select your department
           </label>
           <div className="flex items-center space-x-4">
-            <PdRadioButton
-              id="department"
-              name="department"
-              label="department"
-              isMultiple={true}
-              options={departmentOptions}
-            />
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <PdButton
+                  type="button"
+                  className="mt-1 block w-full p-2 text-black hover:text-white text-sm font-normal bg-transparent border border-gray-500 rounded-md"
+                >
+                  {department || 'Select Department'}
+                </PdButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuRadioGroup
+                  value={department}
+                  onValueChange={setDepartment}
+                >
+                  <DropdownMenuRadioItem value="front-end">
+                    Front-End
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="user-interface">
+                    User Interface
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="back-end">
+                    Back-End
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="quality-assurance">
+                    Quality Assurance
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="business-analyst">
+                    Business Analyst
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="admin-and-hr">
+                    Admin And HR
+                  </DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </div>
