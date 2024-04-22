@@ -19,7 +19,7 @@ const DropZone = () => {
       />
       <label
         htmlFor="fileSelect"
-        className="cursor-pointer text-[#FF503F]"
+        className="cursor-pointer text-primary-400"
       >
         You can select multiple Files
       </label>

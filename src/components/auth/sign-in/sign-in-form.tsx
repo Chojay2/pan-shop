@@ -22,13 +22,14 @@ const SignInForm: React.FC = () => {
           placeholder="******************"
         />
         <p className="text-xs text-gray-500 mt-[8px]">
-          Forgot Password? <span className="text-[#FF503F]">Click Here</span>
+          Forgot Password? <span className="text-primary-500">Click Here</span>
         </p>
       </div>
       <div className="flex flex-col items-center justify-between w-full">
         <PdButton>Sign In</PdButton>
         <p className="text-xs text-gray-500 mt-[8px]">
-          Don`t have an account? <span className="text-[#FF503F]">Sign Up</span>
+          Don`t have an account?{' '}
+          <span className="text-primary-500">Sign Up</span>
         </p>
       </div>
     </Form>

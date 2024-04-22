@@ -73,20 +73,20 @@ function SingUp() {
       >
         <div className="flex flex-col h-full space-y-0">
           <div className="bg-white h-[128px] py-[32px] pl-[64px]">
-            <text className="text-center text-[#EC1C24] text-4xl font-bold mt-[40px] mb-[40px]">
+            <text className="text-center text-primary-500 text-4xl font-bold mt-[40px] mb-[40px]">
               Selise Pan Dokan
             </text>
           </div>
 
           <section className="grid grid-cols-4 grid-rows-2 mb-[80px]">
-            <div className="bg-[#FDDFD9] h-[189px]"></div>
-            <div className="bg-[#FFFFFF] h-[189px]"></div>
-            <div className="bg-[#F5BBAA] h-[189px]"></div>
-            <div className="bg-[#FDDFD9] h-[189px]"></div>
-            <div className="bg-[#FFFFFF] h-[189px]"></div>
-            <div className="bg-[#FDDFD9] h-[189px]"></div>
-            <div className="bg-[#FF6F61] h-[189px]"></div>
-            <div className="bg-[#FCF1E8] h-[189px]"></div>
+            <div className="bg-lightPink h-[189px]"></div>
+            <div className="bg-white h-[189px]"></div>
+            <div className="bg-lightRed h-[189px]"></div>
+            <div className="bg-lightPink h-[189px]"></div>
+            <div className="bg-white h-[189px]"></div>
+            <div className="bg-lightPink h-[189px]"></div>
+            <div className="bg-orange h-[189px]"></div>
+            <div className="bg-lightYellow h-[189px]"></div>
           </section>
 
           <section className="text-left mb-[40px] pt-[32px] pl-[64px] space-y-8">
