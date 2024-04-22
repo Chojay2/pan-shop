@@ -17,18 +17,20 @@ function SingIn() {
   const { isSeller } = useUsersAuthority();
   const dispatch = useDispatch();
 
-  const signInUser = async (values) => {
-    try {
-      toast.loading('Signing in...', { id: 'loading' });
-      const userCredentials = await UserService.signInUser(values);
-      dispatch(setUser(userCredentials.user.uid));
-      toast.dismiss('loading');
-      toast.success('Signed In successfully');
-    } catch (error) {
-      toast.dismiss('loading');
-      toast.error('Signed In failed: ' + error.message);
-      console.error('Signed In error:', error);
-    }
+  const signInUser = (values) => {
+    toast.loading('Signing in...', { id: 'loading' });
+
+    return UserService.signInUser(values)
+      .then((userCredentials) => {
+        dispatch(setUser(userCredentials.user.uid));
+        toast.dismiss('loading');
+        toast.success('Signed In successfully');
+      })
+      .catch((error) => {
+        toast.dismiss('loading');
+        toast.error('Signed In failed: ' + error.message);
+        console.error('Signed In error:', error);
+      });
   };
 
   const logOut = () => {
