@@ -32,7 +32,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({
         });
         setIsAuthorized(false);
         if (!isRoleAuthorized) {
-          router.push('/sign-in');
+          router.push('/not-authorized');
         } else {
           setIsAuthorized(true);
         }

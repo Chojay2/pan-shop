@@ -3,7 +3,7 @@ export type User = {
     name: string;
     email: string;
     role: "admin" | "seller" | "buyer";
-    department: department;
+    department: Department;
 }
 export enum Department  {
     FE = "front-end",

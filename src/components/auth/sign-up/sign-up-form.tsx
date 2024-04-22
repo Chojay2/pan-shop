@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import PdButton from '@/components/ui-kit/button';
 import { PdInput } from '@/components/ui-kit/input';
 import PdRadioButton from '@/components/ui-kit/radio-button';
-import { department } from '@/model/user.model';
+import { Department } from '@/model/user.model';
 import * as Yup from 'yup';
 import { toast } from 'sonner';
 import UserService from '@/services/user.service';
@@ -24,7 +24,7 @@ const purposeOptions = [
   },
 ];
 
-const departmentOptions = Object.keys(department).map((key) => ({
+const departmentOptions = Object.keys(Department).map((key) => ({
   label: key,
   value: key,
 }));
