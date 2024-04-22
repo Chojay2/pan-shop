@@ -5,7 +5,7 @@ import { RootState } from '@/state/store';
 import { useSelector } from 'react-redux';
 import { toast } from 'sonner';
 
-export default abstract class StoreApiService {
+export default abstract class StoreService {
   static addNewStore = async (values) => {
     const storeInfo = {
       ...values,

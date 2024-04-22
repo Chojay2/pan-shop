@@ -9,7 +9,7 @@ import {
   signOut,
 } from 'firebase/auth';
 
-export default abstract class UserApiService {
+export default abstract class UserService {
   static createUser = async (values) => {
     const auth = getAuth();
     try {

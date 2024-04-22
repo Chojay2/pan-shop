@@ -6,7 +6,7 @@ import PdRadioButton from '@/components/ui-kit/radio-button';
 import { department } from '@/model/user.model';
 import * as Yup from 'yup';
 import { toast } from 'sonner';
-import UserApiService from '@/api/user.api';
+import UserService from '@/services/user.service';
 import { useRouter } from 'next/navigation';
 
 const purposeOptions = [
@@ -61,9 +61,9 @@ const SignUpForm: React.FC = () => {
     const { password, confirmPassword, ...userValues } = values;
 
     try {
-      const userCredentials = await UserApiService.createUser(values);
+      const userCredentials = await UserService.createUser(values);
 
-      UserApiService.addUser({
+      UserService.addUser({
         uid: userCredentials.user.uid,
         ...userValues,
       });

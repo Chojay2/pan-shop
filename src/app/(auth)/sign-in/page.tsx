@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import { toast } from 'sonner';
-import UserApiService from '@/api/user.api';
+import UserService from '@/services/user.service';
 import { setUser } from '@/state/auth/auth.slice';
 import useUsersAuthority from '@/hooks/use-users-authority';
 import SignInForm from '@/components/auth/sign-in/sign-in-form';
@@ -20,8 +20,8 @@ function SingIn() {
   const signInUser = async (values) => {
     try {
       toast.loading('Signing in...', { id: 'loading' });
-      const uid = await UserApiService.signInUser(values);
-      dispatch(setUser(uid));
+      const userCredentials = await UserService.signInUser(values);
+      dispatch(setUser(userCredentials.user.uid));
       toast.dismiss('loading');
       toast.success('Signed In successfully');
     } catch (error) {
@@ -33,7 +33,7 @@ function SingIn() {
 
   const logOut = () => {
     try {
-      UserApiService.signOutUser();
+      UserService.signOutUser();
       toast.success('logged out successfully');
     } catch (error) {
       throw error;

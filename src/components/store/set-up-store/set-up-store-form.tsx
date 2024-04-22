@@ -8,10 +8,10 @@ import { PdInput } from '@/components/ui-kit/input';
 import { Textarea } from '@/components/ui-kit/text-area';
 import DropZone from '@/components/ui-kit/drop-zone';
 import { uploadImage } from '@/services/api.service';
-import StoreApiService from '@/api/store.api';
+import StoreService from '@/services/store.service';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/state/store';
-import UserApiService from '@/api/user.api';
+import UserService from '@/services/user.service';
 
 const initialValues = {
   shopName: '',
@@ -38,7 +38,7 @@ function SetUpStoreForm() {
       img: imageUrl,
     };
 
-    await StoreApiService.addNewStore(storeInfo);
+    await StoreService.addNewStore(storeInfo);
   };
   return (
     <div className="container mx-auto px-[8px] pt-[64px]">
