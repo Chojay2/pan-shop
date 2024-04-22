@@ -5,7 +5,7 @@ export type User = {
     role: "admin" | "seller" | "buyer";
     department: department;
 }
-export enum department  {
+export enum Department  {
     FE = "front-end",
     UI = "user-interface",
     BE = "backend",
