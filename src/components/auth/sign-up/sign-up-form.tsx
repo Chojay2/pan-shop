@@ -2,19 +2,30 @@ import { useState } from 'react';
 import { Form } from 'formik';
 import PdButton from '@/components/ui-kit/button';
 import { PdInput } from '@/components/ui-kit/input';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuTrigger,
-} from '@/components/ui-kit/dropdown-menu';
+import PdRadioButton from '@/components/ui-kit/radio-button';
+import { Department } from '@/model/user.model';
+
+const purposeOptions = [
+  {
+    label: 'Admin',
+    value: 'admin',
+  },
+  {
+    label: 'Seller',
+    value: 'seller',
+  },
+  {
+    label: 'Buyer',
+    value: 'buyer',
+  },
+];
+
+const departmentOptions = Object.keys(Department).map((key) => ({
+  label: key,
+  value: key,
+}));
 
 const SignUpForm: React.FC = () => {
-  const [purpose, setPurpose] = useState('');
-
-  const [department, setDepartment] = useState('');
-
   return (
     <Form className="bg-white rounded pt-[24px] pb-[32px] mb-[16px] space-y-[16px]">
       <div className="mb-[16px]">
@@ -50,81 +61,34 @@ const SignUpForm: React.FC = () => {
         />
       </div>
       <div className="flex items-center space-x-[16px]">
-        <div>
+        <div className="mb-[16px]">
           <label className="block text-[14px] font-medium text-gray-700 mb-[8px]">
             What role will you be playing in our platform?
           </label>
           <div className="flex flex-row items-center space-x-[16px]">
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <PdButton
-                  type="button"
-                  className="mt-[4px] block w-full p-[8px] text-black text-[14px] hover:text-white font-normal bg-transparent border border-gray-300 rounded-md"
-                >
-                  {purpose || 'Select Purpose'}
-                </PdButton>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[224px]">
-                <DropdownMenuRadioGroup
-                  value={purpose}
-                  onValueChange={setPurpose}
-                >
-                  <DropdownMenuRadioItem value="admin">
-                    Admin
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="seller">
-                    Seller
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="buyer">
-                    Buyer
-                  </DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <PdRadioButton
+              id="purpose"
+              name="role"
+              label="role"
+              isMultiple={true}
+              options={purposeOptions}
+            />
           </div>
         </div>
       </div>
       <div className="flex items-center space-x-[16px]">
-        <div>
+        <div className="mb-[16px]">
           <label className="block text-[14px] font-medium text-gray-700 mb-[8px]">
             Select your department
           </label>
           <div className="flex items-center space-x-[16px]">
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <PdButton
-                  type="button"
-                  className="mt-[4px] block w-full p-[8px] text-black hover:text-white text-[14px] font-normal bg-transparent border border-gray-500 rounded-md"
-                >
-                  {department || 'Select Department'}
-                </PdButton>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[224px]">
-                <DropdownMenuRadioGroup
-                  value={department}
-                  onValueChange={setDepartment}
-                >
-                  <DropdownMenuRadioItem value="front-end">
-                    Front-End
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="user-interface">
-                    User Interface
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="back-end">
-                    Back-End
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="quality-assurance">
-                    Quality Assurance
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="business-analyst">
-                    Business Analyst
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="admin-and-hr">
-                    Admin And HR
-                  </DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <PdRadioButton
+              id="department"
+              name="department"
+              label="department"
+              isMultiple={true}
+              options={departmentOptions}
+            />
           </div>
         </div>
       </div>
