@@ -16,7 +16,7 @@ const SignUpForm: React.FC = () => {
   const [department, setDepartment] = useState('');
 
   return (
-    <Form className="bg-white rounded pt-[24px] pb-[32px] mb-[16px] space-y-4">
+    <Form className="bg-white rounded pt-[24px] pb-[32px] mb-[16px] space-y-[16px]">
       <div className="mb-[16px]">
         <PdInput
           label="Name"
@@ -49,22 +49,22 @@ const SignUpForm: React.FC = () => {
           name="confirmPassword"
         />
       </div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-[16px]">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-[8px]">
+          <label className="block text-[14px] font-medium text-gray-700 mb-[8px]">
             What role will you be playing in our platform?
           </label>
-          <div className="flex flex-row items-center space-x-4">
+          <div className="flex flex-row items-center space-x-[16px]">
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <PdButton
                   type="button"
-                  className="mt-1 block w-full p-2 text-black text-sm hover:text-white font-normal bg-transparent border border-gray-300 rounded-md"
+                  className="mt-[4px] block w-full p-[8px] text-black text-[14px] hover:text-white font-normal bg-transparent border border-gray-300 rounded-md"
                 >
                   {purpose || 'Select Purpose'}
                 </PdButton>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56">
+              <DropdownMenuContent className="w-[224px]">
                 <DropdownMenuRadioGroup
                   value={purpose}
                   onValueChange={setPurpose}
@@ -84,22 +84,22 @@ const SignUpForm: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-[16px]">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-[8px]">
+          <label className="block text-[14px] font-medium text-gray-700 mb-[8px]">
             Select your department
           </label>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-[16px]">
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <PdButton
                   type="button"
-                  className="mt-1 block w-full p-2 text-black hover:text-white text-sm font-normal bg-transparent border border-gray-500 rounded-md"
+                  className="mt-[4px] block w-full p-[8px] text-black hover:text-white text-[14px] font-normal bg-transparent border border-gray-500 rounded-md"
                 >
                   {department || 'Select Department'}
                 </PdButton>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56">
+              <DropdownMenuContent className="w-[224px]">
                 <DropdownMenuRadioGroup
                   value={department}
                   onValueChange={setDepartment}

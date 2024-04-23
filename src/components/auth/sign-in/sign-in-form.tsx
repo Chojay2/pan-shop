@@ -27,7 +27,7 @@ const SignInForm: React.FC = () => {
       </div>
       <div className="flex flex-col items-center justify-between w-full">
         <PdButton>Sign In</PdButton>
-        <p className="text-xs text-gray-500 mt-[8px]">
+        <p className="text-[12px] text-gray-500 mt-[8px]">
           Don`t have an account?{' '}
           <span className="text-primary-500">Sign Up</span>
         </p>

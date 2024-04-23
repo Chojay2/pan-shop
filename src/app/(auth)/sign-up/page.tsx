@@ -73,7 +73,7 @@ function SingUp() {
       >
         <div className="flex flex-col h-full space-y-0">
           <div className="bg-white h-[128px] py-[32px] pl-[64px]">
-            <text className="text-center text-primary-500 text-4xl font-bold mt-[40px] mb-[40px]">
+            <text className="text-center text-primary-500 text-[36px] font-bold mt-[40px] mb-[40px]">
               Selise Pan Dokan
             </text>
           </div>
@@ -89,9 +89,9 @@ function SingUp() {
             <div className="bg-lightYellow h-[189px]"></div>
           </section>
 
-          <section className="text-left mb-[40px] pt-[32px] pl-[64px] space-y-8">
-            <h2 className="text-xl text-white font-semibold m">Our Mission</h2>
-            <p className="text-md text-white max-w-md">
+          <section className="mb-[40px] pt-[32px] pl-[64px] space-y-[32px]">
+            <h2 className="text-[20px] text-white font-semibold m">Our Mission</h2>
+            <p className="text-white max-w-md">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               euismod, nunc at cursus pellentesque, nisl eros pellentesque quam,
               a faucibus nisl nunc id nisl.
@@ -109,8 +109,8 @@ function SingUp() {
       </div>
 
       <div className="flex items-center justify-center">
-        <div className="w-full px-[32px] lg:px-0 max-w-lg">
-          <h2 className="text-start text-xl font-bold mb-[16px]">Signup</h2>
+        <div className="w-full px-[32px] lg:px-0 max-w-[512px]">
+          <h2 className="text-start text-[20px] font-bold mb-[16px]">Signup</h2>
           <Formik
             initialValues={initialValues}
             validationSchema={validate}
