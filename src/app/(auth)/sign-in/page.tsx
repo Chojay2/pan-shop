@@ -42,10 +42,7 @@ function SingIn() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 h-screen">
-      <div
-        className="hidden lg:block bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/login-bg.png')" }}
-      >
+      <div className="hidden lg:block bg-cover bg-[url('/images/login-bg.png')] bg-center">
         <div className="flex flex-col h-full space-y-0">
           <div className="bg-white h-[128px] py-[32px] pl-[64px]">
             <text className="text-center text-primary-500 text-[36px] font-bold mt-[40px] mb-[40px]">
@@ -65,8 +62,10 @@ function SingIn() {
           </section>
 
           <section className="mb-[40px] pt-[32px] pl-[64px] space-y-[32px]">
-            <h2 className="text-[20px] text-white font-semibold m">Our Mission</h2>
-            <p className="text-white max-w-md">
+            <h2 className="text-[20px] text-white font-semibold">
+              Our Mission
+            </h2>
+            <p className="text-white max-w-[448px]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               euismod, nunc at cursus pellentesque, nisl eros pellentesque quam,
               a faucibus nisl nunc id nisl.

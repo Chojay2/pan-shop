@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const DropZone = () => {
   return (
-    <div className="flex flex-col items-center justify-center p-[16px] rounded-lg border-[2px] border-dashed border-gray-300 text-center">
+    <div className="flex flex-col items-center justify-center p-[16px] rounded-[8px] border-[2px] border-dashed border-gray-300 text-center">
       <Image
         src="/images/file-upload-icon.svg"
         alt="upload"
