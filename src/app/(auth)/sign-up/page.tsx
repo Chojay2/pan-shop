@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { toast } from 'sonner';
 import UserApiService from '@/api/user.api';
 import { PdInput } from '@/components/ui-kit/input';
-import { department } from '@/model/user.model';
+import { Department } from '@/model/user.model';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import SignUpForm from '@/components/auth/sign-up/sign-up-form';
 
@@ -23,11 +23,11 @@ function SingUp() {
       .oneOf(['admin', 'seller', 'buyer'])
       .required('please choose what you want to do!'),
     department: Yup.string()
-      .oneOf(Object.values(department))
+      .oneOf(Object.values(Department))
       .required('please choose what you want to do!'),
   });
 
-  const departmentValues = Object.values(department);
+  const departmentValues = Object.values(Department);
 
   const initialValues = {
     name: '',
@@ -90,7 +90,7 @@ function SingUp() {
           </section>
 
           <section className="mb-[40px] pt-[32px] pl-[64px] space-y-[32px]">
-            <h2 className="text-[20px] text-white font-semibold m">Our Mission</h2>
+            <h2 className="text-[20px] text-white font-semibold">Our Mission</h2>
             <p className="text-white max-w-md">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               euismod, nunc at cursus pellentesque, nisl eros pellentesque quam,

@@ -1,16 +1,10 @@
 import React from 'react';
-import Image from 'next/image';
+import { TbFileUpload } from 'react-icons/tb';
 
 const DropZone = () => {
   return (
     <div className="flex flex-col items-center justify-center p-[16px] rounded-[8px] border-[2px] border-dashed border-gray-300 text-center">
-      <Image
-        src="/images/file-upload-icon.svg"
-        alt="upload"
-        height={50}
-        width={50}
-        className="mb-[16px]"
-      />
+      <TbFileUpload size="64px" />
       <input
         id="fileSelect"
         type="file"
