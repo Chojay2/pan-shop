@@ -4,9 +4,10 @@ import React from 'react';
 import * as Yup from 'yup';
 import { toast } from 'sonner';
 import UserApiService from '@/api/user.api';
-import TextField from '@/components/text-field';
-import { department } from '@/model/user.model';
+import { PdInput } from '@/components/ui-kit/input';
+import { Department } from '@/model/user.model';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import SignUpForm from '@/components/auth/sign-up/sign-up-form';
 
 function SingUp() {
   const validate = Yup.object({
@@ -22,11 +23,11 @@ function SingUp() {
       .oneOf(['admin', 'seller', 'buyer'])
       .required('please choose what you want to do!'),
     department: Yup.string()
-      .oneOf(Object.values(department))
+      .oneOf(Object.values(Department))
       .required('please choose what you want to do!'),
   });
 
-  const departmentValues = Object.values(department);
+  const departmentValues = Object.values(Department);
 
   const initialValues = {
     name: '',
@@ -36,7 +37,7 @@ function SingUp() {
     role: '',
     department: '',
   };
-  const registerUser = async (values) => {
+  const registerUser = async (values: any) => {
     toast.loading('Submitting...', { id: 'loading' });
     const { password, confirmPassword, ...userValues } = values;
 
@@ -51,7 +52,7 @@ function SingUp() {
       toast.dismiss('loading');
 
       toast.success('User added successfully');
-    } catch (error) {
+    } catch (error: any) {
       toast.dismiss('loading');
       if (error.code === 'auth/email-already-in-use') {
         toast.error(
@@ -65,91 +66,60 @@ function SingUp() {
   };
 
   return (
-    <div>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validate}
-        onSubmit={(values) => registerUser(values)}
+    <div className="grid grid-cols-1 md:grid-cols-2 h-screen">
+      <div
+        className="hidden lg:block bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/login-bg.png')" }}
       >
-        {(formik) => (
-          <div>
-            <h1 className="">Signup</h1>
-            <Form className="form p-3">
-              <TextField
-                type="text"
-                label="name"
-                name="name"
-                placeholder="Lorem"
-              />
-              <TextField
-                type="email"
-                name="email"
-                label="Email"
-                placeholder="loremipsum@gmail.com"
-              />
-              <TextField
-                type="password"
-                name="password"
-                label="Password"
-                placeholder="qwert@123"
-              />
-              <div>
-                <label htmlFor="confirmPassword">Confirm Password</label>
-                <input
-                  id="confirmPassword"
-                  className={`form-control shadow-none ${
-                    formik.touched.confirmPassword &&
-                    formik.errors.confirmPassword &&
-                    'is-invalid'
-                  }`}
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="confirm password..."
-                  {...formik.getFieldProps('confirmPassword')}
-                />
-                <ErrorMessage
-                  component="div"
-                  name="confirmPassword"
-                />
-              </div>
-
-              <div id="role-radio-group">What is your purpose here?</div>
-              <div
-                role="group"
-                aria-labelledby="role-radio-group"
-              >
-                {['admin', 'seller', 'buyer'].map((value) => (
-                  <label key={value}>
-                    <Field
-                      type="radio"
-                      name="role"
-                      value={value}
-                    />
-                    {value}
-                  </label>
-                ))}
-              </div>
-              <div id="department-radio-group">What is your department?</div>
-              <div
-                role="group"
-                aria-labelledby="department-radio-group"
-              >
-                {departmentValues.map((value) => (
-                  <label key={value}>
-                    <Field
-                      type="radio"
-                      name="department"
-                      value={value}
-                    />
-                    {value}
-                  </label>
-                ))}
-              </div>
-              <button type="submit">Register</button>
-            </Form>
+        <div className="flex flex-col h-full space-y-0">
+          <div className="bg-white h-[128px] py-[32px] pl-[64px]">
+            <text className="text-center text-primary-500 text-[36px] font-bold mt-[40px] mb-[40px]">
+              Selise Pan Dokan
+            </text>
           </div>
-        )}
-      </Formik>
+
+          <section className="grid grid-cols-4 grid-rows-2 mb-[80px]">
+            <div className="bg-lightPink h-[189px]"></div>
+            <div className="bg-white h-[189px]"></div>
+            <div className="bg-lightRed h-[189px]"></div>
+            <div className="bg-lightPink h-[189px]"></div>
+            <div className="bg-white h-[189px]"></div>
+            <div className="bg-lightPink h-[189px]"></div>
+            <div className="bg-orange h-[189px]"></div>
+            <div className="bg-lightYellow h-[189px]"></div>
+          </section>
+
+          <section className="mb-[40px] pt-[32px] pl-[64px] space-y-[32px]">
+            <h2 className="text-[20px] text-white font-semibold">Our Mission</h2>
+            <p className="text-white max-w-md">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              euismod, nunc at cursus pellentesque, nisl eros pellentesque quam,
+              a faucibus nisl nunc id nisl.
+            </p>
+            <div className="flex justify-start">
+              {Array.from({ length: 3 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="w-[12px] h-[12px] rounded-full bg-white opacity-50 mx-[8px]"
+                ></div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-center">
+        <div className="w-full px-[32px] lg:px-0 max-w-[512px]">
+          <h2 className="text-start text-[20px] font-bold mb-[16px]">Signup</h2>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validate}
+            onSubmit={(values) => registerUser(values)}
+          >
+            {(props) => <SignUpForm />}
+          </Formik>
+        </div>
+      </div>
     </div>
   );
 }

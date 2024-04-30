@@ -2,6 +2,7 @@ export type Shop = {
     storeId: string;
     sellerUid: string;
     storeName: string;
+    status: 'pending' | 'approved'| 'rejected'| 'archieved'; 
     otherFields: any; 
 }
 
