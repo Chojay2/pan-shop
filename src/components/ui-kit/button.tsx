@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 
 interface PdButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;

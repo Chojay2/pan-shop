@@ -29,13 +29,13 @@ const PdRadioButton: React.FC<PdRadioButtonProps> = ({
               id={`${id}-${option.value}`}
               name={name}
               type="radio"
-              className="w-4 h-4 text-red-600 form-radio"
+              className="w-[16px] h-[16px] text-red-600 form-radio"
               value={option.value}
               defaultChecked={defaultChecked === option.value}
             />
             <label
               htmlFor={`${id}-${option.value}`}
-              className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              className="ml-[8px] text-[14px] font-medium text-gray-900 dark:text-gray-300"
             >
               {option.label}
             </label>
@@ -51,12 +51,12 @@ const PdRadioButton: React.FC<PdRadioButtonProps> = ({
         id={id}
         name={name}
         type="radio"
-        className="w-4 h-4 text-red-600 form-radio"
+        className="w-[16px] h-[16px] text-red-600 form-radio"
         defaultChecked={defaultChecked === label}
       />
       <label
         htmlFor={id}
-        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        className="ml-[8px] text-[14px] font-medium text-gray-900 dark:text-gray-300"
       >
         {label}
       </label>

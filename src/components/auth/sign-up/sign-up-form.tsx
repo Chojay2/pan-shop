@@ -1,9 +1,9 @@
-import React from 'react';
+import { useState } from 'react';
 import { Form } from 'formik';
 import PdButton from '@/components/ui-kit/button';
 import { PdInput } from '@/components/ui-kit/input';
 import PdRadioButton from '@/components/ui-kit/radio-button';
-import { department } from '@/model/user.model';
+import { Department } from '@/model/user.model';
 
 const purposeOptions = [
   {
@@ -20,14 +20,14 @@ const purposeOptions = [
   },
 ];
 
-const departmentOptions = Object.keys(department).map((key) => ({
+const departmentOptions = Object.keys(Department).map((key) => ({
   label: key,
   value: key,
 }));
 
 const SignUpForm: React.FC = () => {
   return (
-    <Form className="bg-white rounded pt-[24px] pb-[32px] mb-[16px] space-y-4">
+    <Form className="bg-white rounded pt-[24px] pb-[32px] mb-[16px] space-y-[16px]">
       <div className="mb-[16px]">
         <PdInput
           label="Name"
@@ -60,28 +60,28 @@ const SignUpForm: React.FC = () => {
           name="confirmPassword"
         />
       </div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-[16px]">
         <div className="mb-[16px]">
-          <label className="block text-sm font-medium text-gray-700 mb-[16px]">
+          <label className="block text-[14px] font-medium text-gray-700 mb-[8px]">
             What role will you be playing in our platform?
           </label>
-          <div className="flex flex-row items-center space-x-4">
+          <div className="flex flex-row items-center space-x-[16px]">
             <PdRadioButton
               id="purpose"
-              name="purpose"
-              label="purpose"
+              name="role"
+              label="role"
               isMultiple={true}
               options={purposeOptions}
             />
           </div>
         </div>
       </div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-[16px]">
         <div className="mb-[16px]">
-          <label className="block text-sm font-medium text-gray-700 mb-[16px]">
+          <label className="block text-[14px] font-medium text-gray-700 mb-[8px]">
             Select your department
           </label>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-[16px]">
             <PdRadioButton
               id="department"
               name="department"
