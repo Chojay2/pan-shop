@@ -5,7 +5,7 @@ import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import PdButton from '@/components/ui-kit/button';
 import { PdInput } from '@/components/ui-kit/input';
-import { Textarea } from '@/components/ui-kit/text-area';
+import { PdTextarea } from '@/components/ui-kit/text-area';
 import DropZone from '@/components/ui-kit/drop-zone';
 import { uploadImage } from '@/services/api.service';
 import StoreService from '@/services/store.service';
@@ -65,7 +65,7 @@ function SetUpStoreForm() {
                   />
                 </div>
                 <div className="mb-[16px]">
-                  <Textarea
+                  <PdTextarea
                     label="Description"
                     placeholder="type your description here"
                     name="description"

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import PdButton from '@/components/ui-kit/button';
 import { PdInput } from '@/components/ui-kit/input';
@@ -91,7 +91,7 @@ const SignUpForm: React.FC = () => {
       onSubmit={(values) => registerUser(values)}
     >
       {(props) => (
-        <Form className="bg-white rounded pt-[24px] pb-[32px] mb-[16px] space-y-4">
+        <Form className="bg-white rounded pt-[24px] pb-[32px] mb-[16px] space-y-[16px]">
           <div className="mb-[16px]">
             <PdInput
               label="Name"
@@ -124,12 +124,12 @@ const SignUpForm: React.FC = () => {
               name="confirmPassword"
             />
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-[16px]">
             <div className="mb-[16px]">
-              <label className="block text-sm font-medium text-gray-700 mb-[16px]">
+              <label className="block text-[14px] font-medium text-gray-700 mb-[16px]">
                 What role will you be playing in our platform?
               </label>
-              <div className="flex flex-row items-center space-x-4">
+              <div className="flex flex-row items-center space-x-[16px]">
                 <PdRadioButton
                   id="purpose"
                   name="role"
@@ -140,12 +140,12 @@ const SignUpForm: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-[16px]">
             <div className="mb-[16px]">
-              <label className="block text-sm font-medium text-gray-700 mb-[16px]">
+              <label className="block text-[14px] font-medium text-gray-700 mb-[16px]">
                 Select your department
               </label>
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-[16px]">
                 <PdRadioButton
                   id="department"
                   name="department"

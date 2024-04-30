@@ -1,0 +1,43 @@
+:root {
+    --primary-50: #FF7A6A;
+    --primary-100: #FF6A5A;
+    --primary-200: #FF5A4A;
+    --primary-300: #FF4A3A;
+    --primary-400: #FF3A2A;
+    --primary-500: #FF503E;
+    --primary-600: #FF2A2A;
+    --primary-700: #FF1A1A;
+    --primary-800: #FF0A0A;
+    --primary-900: #FF0000;
+
+    --black: 0 0 0;
+    --white: 255 255 255;
+    --success: 0 181 58;
+    --warning: 250 188 7;
+    --danger: 198 55 51;
+    --info: 103 178 229;
+    --color-light-pink: #FDDFD9;
+    --color-light-red: #F5BBAA;
+    --color-orange: #FF6F61;
+    --color-light-yellow: #FCF1E8;
+    --bg-gradient-start: #FF998F;
+    --bg-gradient-end: #FF503F;
+
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary-foreground: 0 85.7% 97.3%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 72.2% 50.6%;
+    --radius: 0.5rem;
+}

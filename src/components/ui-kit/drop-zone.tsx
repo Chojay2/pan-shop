@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
-import Image from 'next/image';
+import { TbFileUpload } from 'react-icons/tb';
 import { FormikErrors } from 'formik';
 
 interface IUploadFile<T> {
@@ -33,14 +33,8 @@ const DropZone: FunctionComponent<IUploadFile<{ image?: File }>> = ({
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 rounded-lg border-2 border-dashed border-gray-300 text-center">
-      <Image
-        src="/images/file-upload-icon.svg"
-        alt="upload"
-        height={50}
-        width={50}
-        className="mb-4"
-      />
+    <div className="flex flex-col items-center justify-center p-[16px] rounded-[8px] border-[2px] border-dashed border-gray-300 text-center">
+      <TbFileUpload size="64px" />
       <input
         id="fileSelect"
         type="file"
@@ -52,7 +46,7 @@ const DropZone: FunctionComponent<IUploadFile<{ image?: File }>> = ({
       />
       <label
         htmlFor="fileSelect"
-        className="cursor-pointer text-[#FF503F]"
+        className="cursor-pointer text-primary-400"
       >
         {fileName ? `Uploaded: ${fileName}` : 'You can select multiple Files'}
       </label>
