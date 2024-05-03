@@ -49,7 +49,7 @@ function SingIn() {
           <div className="bg-white h-[128px] py-[32px] pl-[64px]">
             <text className="text-center text-primary-500 text-[36px] font-bold mt-[40px] mb-[40px]">
               Selise Pan Dokan
-            </p>
+            </text>
           </div>
 
           <section className="grid grid-cols-4 grid-rows-2 mb-[80px]">

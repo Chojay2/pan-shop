@@ -53,7 +53,7 @@ const DropZone: FunctionComponent<IUploadFile<{ image?: File }>> = ({
       {!fileName && (
         <h3 className="text-gray-500">or drag &amp; drop your files here</h3>
       )}
-      {errors.image && <span id="error">{errors.image}</span>}
+      {errors?.image && <span id="error">{errors.image}</span>}
     </div>
   );
 };
