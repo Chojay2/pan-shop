@@ -21,17 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <StoreProviders>
-      <html lang="en">
-        <body
-          className={cn(
-            'min-h-screen bg-background font-sans antialiased',
-            fontSans.variable,
-          )}
-        >
+    <html lang="en">
+      <body
+        className={cn(
+          'min-h-screen bg-background font-sans antialiased',
+          fontSans.variable,
+        )}
+      >
+        <StoreProviders>
           {children} <Toaster richColors />
-        </body>
-      </html>
-    </StoreProviders>
+        </StoreProviders>
+      </body>
+    </html>
   );
 }

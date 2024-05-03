@@ -1,11 +1,10 @@
 'use client';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import { toast } from 'sonner';
-import { RootState } from '@/state/store';
-import UserApiService from '@/api/user.api';
-import { logOutUser, setUser } from '@/state/auth/auth.slice';
+import UserService from '@/services/user.service';
+import { setUser } from '@/state/auth/auth.slice';
 import useUsersAuthority from '@/hooks/use-users-authority';
 import SignInForm from '@/components/auth/sign-in/sign-in-form';
 
@@ -16,24 +15,27 @@ function SingIn() {
   };
 
   const { isSeller } = useUsersAuthority();
+  const dispatch = useDispatch();
 
-  const signInUser = async (values) => {
-    try {
-      toast.loading('Signing in...', { id: 'loading' });
-      const userCredentials = await UserApiService.signInUser(values);
+  const signInUser = (values) => {
+    toast.loading('Signing in...', { id: 'loading' });
 
-      toast.dismiss('loading');
-      toast.success('Signed In successfully');
-    } catch (error) {
-      toast.dismiss('loading');
-      toast.error('Signed In failed: ' + error.message);
-      console.error('Signed In error:', error);
-    }
+    return UserService.signInUser(values)
+      .then((userCredentials) => {
+        dispatch(setUser(userCredentials.user.uid));
+        toast.dismiss('loading');
+        toast.success('Signed In successfully');
+      })
+      .catch((error) => {
+        toast.dismiss('loading');
+        toast.error('Signed In failed: ' + error.message);
+        console.error('Signed In error:', error);
+      });
   };
 
   const logOut = () => {
     try {
-      UserApiService.signOutUser();
+      UserService.signOutUser();
       toast.success('logged out successfully');
     } catch (error) {
       throw error;
@@ -47,7 +49,7 @@ function SingIn() {
           <div className="bg-white h-[128px] py-[32px] pl-[64px]">
             <text className="text-center text-primary-500 text-[36px] font-bold mt-[40px] mb-[40px]">
               Selise Pan Dokan
-            </text>
+            </p>
           </div>
 
           <section className="grid grid-cols-4 grid-rows-2 mb-[80px]">
