@@ -2,8 +2,15 @@ export type Shop = {
     storeId: string;
     sellerUid: string;
     storeName: string;
-    status: 'pending' | 'approved'| 'rejected'| 'archieved'; 
-    otherFields: any; 
+    status: ShopStatus 
+    img: string; 
+}
+
+export enum ShopStatus  {
+    pending = 'pending',
+    approved = "approved",
+    rejected = "rejected",
+    archieved ="archived"
 }
 
 export type Product = {

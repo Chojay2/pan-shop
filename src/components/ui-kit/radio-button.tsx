@@ -1,4 +1,5 @@
 import React from 'react';
+import { Field } from 'formik';
 
 interface PdRadioButtonProps {
   id: string;
@@ -25,14 +26,14 @@ const PdRadioButton: React.FC<PdRadioButtonProps> = ({
             key={index}
             className="flex items-center ml-[16px]"
           >
-            <input
-              id={`${id}-${option.value}`}
+            <Field
               name={name}
               type="radio"
-              className="w-[16px] h-[16px] text-red-600 form-radio"
               value={option.value}
-              defaultChecked={defaultChecked === option.value}
+              id={`${id}-${option.value}`}
+              className="w-[16px] h-[16px] text-red-600 form-radio"
             />
+
             <label
               htmlFor={`${id}-${option.value}`}
               className="ml-[8px] text-[14px] font-medium text-gray-900 dark:text-gray-300"

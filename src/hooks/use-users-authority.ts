@@ -11,6 +11,7 @@ function useUsersAuthority() {
 
   useEffect(() => {
     const auth = getAuth();
+    
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         try {

@@ -3,12 +3,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AuthState {
   isAuthenticated: boolean;
-  user: string | null;
+  uid: string | null;
 }
 
 const initialState: AuthState = {
   isAuthenticated: false,
-  user: null
+  uid: null
 };
 
 const AuthSlice = createSlice({
@@ -16,11 +16,11 @@ const AuthSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action) {
-      state.user = action.payload;
+      state.uid = action.payload;
       state.isAuthenticated = !!action.payload;
     }, 
     logOutUser(state) {
-      state.user = null;
+      state.uid = null;
       state.isAuthenticated = false;
     }
   }

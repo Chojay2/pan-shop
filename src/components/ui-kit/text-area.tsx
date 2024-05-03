@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { Field } from 'formik';
 
 export interface PdTextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -15,11 +16,12 @@ const PdTextarea = React.forwardRef<HTMLTextAreaElement, PdTextareaProps>(
             {props.label}
           </label>
         )}
-        <textarea
+        <Field
           className={cn(
             'flex min-h-[80px] w-full rounded-[6px] border border-input bg-background px-[12px] py-[8px] text-[8px] ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-[2px] disabled:cursor-not-allowed disabled:opacity-50',
             className,
           )}
+          type="text-area"
           ref={ref}
           {...props}
         />

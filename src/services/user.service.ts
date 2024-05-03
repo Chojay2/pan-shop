@@ -1,6 +1,6 @@
 import { firebaseCollection } from '@/model/collection.model';
 import { User, UserAuth } from '@/model/user.model';
-import { addToDb } from '@/services/api.service';
+import { addToDb, fetchDataFromDb } from '@/services/api.service';
 import {
   createUserWithEmailAndPassword,
   fetchSignInMethodsForEmail,
@@ -9,7 +9,7 @@ import {
   signOut,
 } from 'firebase/auth';
 
-export default abstract class UserApiService {
+export default abstract class UserService {
   static createUser = async (values) => {
     const auth = getAuth();
     try {
@@ -58,5 +58,10 @@ export default abstract class UserApiService {
       throw error
     }
 
+  }
+
+  static fetchUsers = async () => {
+    const users = await fetchDataFromDb('users');
+    return users;
   }
 }
