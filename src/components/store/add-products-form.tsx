@@ -17,13 +17,13 @@ const AddProductPage = () => {
   const [productCategory, setProductCategory] = useState('');
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Add a New Product</h1>
-      <form className="space-y-4">
+    <div className="max-w-[896px] mx-auto p-[16px]">
+      <h1 className="text-[24px] font-bold mb-[16px]">Add a New Product</h1>
+      <form className="space-y-[16px]">
         <div>
           <label
             htmlFor="productName"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-[14px] font-medium text-gray-700"
           >
             Product Name:
           </label>
@@ -33,13 +33,13 @@ const AddProductPage = () => {
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
             required
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            className="mt-[4px] block w-full p-[8px] border border-gray-300 rounded-[6px]"
           />
         </div>
         <div>
           <label
             htmlFor="productDescription"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-[14px] font-medium text-gray-700"
           >
             Product Description:
           </label>
@@ -48,13 +48,13 @@ const AddProductPage = () => {
             value={productDescription}
             onChange={(e) => setProductDescription(e.target.value)}
             required
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            className="mt-[4px] block w-full p-[8px] border border-gray-300 rounded-[6px]"
           />
         </div>
         <div>
           <label
             htmlFor="productPrice"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-[14px] font-medium text-gray-700"
           >
             Product Price:
           </label>
@@ -64,24 +64,21 @@ const AddProductPage = () => {
             value={productPrice}
             onChange={(e) => setProductPrice(e.target.value)}
             required
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            className="mt-[4px] block w-full p-[8px] border border-gray-300 rounded-[6px]"
           />
         </div>
         <div>
           <label
             htmlFor="productCategory"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-[14px] font-medium text-gray-700"
           >
             Product Category:
           </label>
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <PdButton
-                type="button"
-                className="mt-1 block w-full p-2 bg-gray-300 border border-gray-300 rounded-md"
-              >
+              <div className="mt-[4px] block w-full p-[8px] bg-gray-100 border border-gray-300 rounded-[6px] items-center">
                 {productCategory || 'Select Category'}
-              </PdButton>
+              </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuRadioGroup
@@ -100,17 +97,19 @@ const AddProductPage = () => {
           </DropdownMenu>
         </div>
         <div className="mb-[32px] space-y-[8px]">
-          <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+          <label className="text-[14px] font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
             Upload your product images
           </label>
           <DropZone />
         </div>
-        <PdButton
-          type="submit"
-          className="text-white font-bold py-2 px-4 rounded"
-        >
-          Add Product
-        </PdButton>
+        <div className="flex justify-center w-full">
+          <PdButton
+            type="submit"
+            className="text-white font-bold py-[8px] px-[16px] rounded md:w-[30%]"
+          >
+            Add Product
+          </PdButton>
+        </div>
       </form>
     </div>
   );
