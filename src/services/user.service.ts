@@ -1,3 +1,4 @@
+import { db } from '@/firebase/clientApp';
 import { firebaseCollection } from '@/model/collection.model';
 import { User, UserAuth } from '@/model/user.model';
 import { addToDb, fetchDataFromDb } from '@/services/api.service';
@@ -8,6 +9,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
+import { getDocs, query, collection, where } from 'firebase/firestore';
 
 export default abstract class UserService {
   static createUser = async (values) => {
@@ -62,6 +64,19 @@ export default abstract class UserService {
 
   static fetchUsers = async () => {
     const users = await fetchDataFromDb('users');
+    
     return users;
+  }
+
+
+  static fetchUser = async (uid: string) => {
+    const user = await getDocs(
+      query(
+        collection(db, firebaseCollection.Users),
+        where('uid', '==', uid),
+      ),
+    );
+    const userDetails = user.docs[0]?.data()
+    return userDetails;
   }
 }

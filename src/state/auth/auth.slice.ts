@@ -1,14 +1,16 @@
 import { auth } from '@/firebase/clientApp';
+import { User } from '@/model/user.model';
+import UserService from '@/services/user.service';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AuthState {
   isAuthenticated: boolean;
-  uid: string | null;
+  user: User | undefined;
 }
 
 const initialState: AuthState = {
   isAuthenticated: false,
-  uid: null
+  user: undefined
 };
 
 const AuthSlice = createSlice({
@@ -16,11 +18,11 @@ const AuthSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action) {
-      state.uid = action.payload;
+      state.user = action.payload;
       state.isAuthenticated = !!action.payload;
     }, 
     logOutUser(state) {
-      state.uid = null;
+      state.user = undefined;
       state.isAuthenticated = false;
     }
   }
@@ -28,10 +30,20 @@ const AuthSlice = createSlice({
 
 export const { setUser, logOutUser } = AuthSlice.actions;
 
-export const initAuth = ()=> dispatch => {
-  auth.onAuthStateChanged(user => {
-    dispatch(setUser(user?.uid));
+export const initAuth = () => async (dispatch) => {
+  auth.onAuthStateChanged(async (user) => {
+    if (user?.uid) {
+      try {
+        const userDetails = await UserService.fetchUser(user.uid);
+        dispatch(setUser(userDetails));
+      } catch (error) {
+        console.error('Error fetching user details:', error);
+      }
+    } else {
+      dispatch(setUser(undefined));
+    }
   });
 };
+
 
 export default AuthSlice.reducer;
