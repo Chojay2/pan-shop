@@ -17,7 +17,7 @@ const AddProductPage = () => {
   const [productCategory, setProductCategory] = useState('');
 
   return (
-    <div className="max-w-[896px] mx-auto p-[16px]">
+    <div className="max-w-full md:max-w-[50%] mx-auto p-[16px]">
       <h1 className="text-[24px] font-bold mb-[16px]">Add a New Product</h1>
       <form className="space-y-[16px]">
         <div>
