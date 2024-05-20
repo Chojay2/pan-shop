@@ -1,17 +1,36 @@
 import { db, storage } from '@/firebase/clientApp';
-import { error } from 'console';
 import {
   collection,
   addDoc,
   getDocs,
   doc,
   Timestamp,
+  query,
+  where,
 } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 
 export const fetchDataFromDb = async (dbName: string) => {
   try {
     const querySnapshot = await getDocs(collection(db, dbName));
+    const data = [];
+    querySnapshot.forEach((doc) => {
+      data.push({ id: doc.id, ...doc.data() });
+    });
+    console.log(data);
+
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+};
+
+export const fetchDataID = async (dbName: string, id: string) => {
+  try {
+    const querySnapshot = await getDocs(
+      query(collection(db, dbName), where('uid', '==', id)),
+    );
     const data = [];
     querySnapshot.forEach((doc) => {
       data.push({ id: doc.id, ...doc.data() });
@@ -50,8 +69,8 @@ export const addToDb = async (
 };
 
 export const uploadImage = async (file: File) => {
-    const fileRef = ref(storage, `images/${file.name}`);
-    await uploadBytes(fileRef, file);
-    const downloadURL = await getDownloadURL(fileRef);
-    return downloadURL;
-   };
+  const fileRef = ref(storage, `images/${file.name}`);
+  await uploadBytes(fileRef, file);
+  const downloadURL = await getDownloadURL(fileRef);
+  return downloadURL;
+};

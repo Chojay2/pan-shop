@@ -26,7 +26,7 @@ const validationScheme = Yup.object({
 });
 
 function SetUpStoreForm() {
-  const uid = useSelector((state: RootState) => state.auth.uid);
+  const uid = useSelector((state: RootState) => state.auth.user?.uid);
   const submitStoreInfo = async (values) => {
     const imageUrl = await uploadImage(values.image);
 

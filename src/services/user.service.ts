@@ -64,7 +64,6 @@ export default abstract class UserService {
 
   static fetchUsers = async () => {
     const users = await fetchDataFromDb('users');
-    
     return users;
   }
 
@@ -78,5 +77,5 @@ export default abstract class UserService {
     );
     const userDetails = user.docs[0]?.data()
     return userDetails;
-  }
+  };
 }

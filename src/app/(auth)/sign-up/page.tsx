@@ -48,7 +48,6 @@ function SingUp() {
           </section>
         </div>
       </div>
-
       <div className="flex items-center justify-center">
         <div className="w-full px-[32px] lg:px-0 max-w-[512px]">
           <h2 className="text-start text-[20px] font-bold mb-[16px]">Signup</h2>

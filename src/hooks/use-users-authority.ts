@@ -1,33 +1,29 @@
 import { db } from '@/firebase/clientApp';
 import { firebaseCollection } from '@/model/collection.model';
+import { RootState } from '@/state/store';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { query, collection, where, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 function useUsersAuthority() {
   const [userRole, setUserRole] = useState<string>('');
 
   const [isLoading, setIsloading] = useState(true)
+  const role = useSelector((state: RootState) => state.auth.user?.role);
+
 
   useEffect(() => {
     const auth = getAuth();
     
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
+      if (role && user) {
         try {
-          const userRoleSnapshot = await getDocs(
-            query(
-              collection(db, firebaseCollection.Users),
-              where('uid', '==', user.uid),
-            ),
-          );
-          const userRole = userRoleSnapshot.docs[0]?.data()?.role;
-          setUserRole(userRole)
+          setUserRole(role)
         } catch (error) {
           console.error('Error fetching user role:', error);
           setUserRole('');
         }
-        
       } else {
         setUserRole('');
       }
