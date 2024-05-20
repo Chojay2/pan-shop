@@ -56,6 +56,21 @@ const config = {
         900: 'var(--primary-900)',
       },
 
+      gray: {
+        50: 'var(--gray-50)',
+        60: 'var(--gray-60)',
+        100: 'var(--gray-100)',
+        200: 'var(--gray-200)',
+        250: 'var(--gray-250)',
+        300: 'var(--gray-300)',
+        400: 'var(--gray-400)',
+        500: 'var(--gray-500)',
+        600: 'var(--gray-600)',
+        700: 'var(--gray-700)',
+        800: 'var(--gray-800)',
+        900: 'var(--gray-900)',
+      },
+
       secondary: {
         DEFAULT: 'hsl(var(--secondary))',
         foreground: 'hsl(var(--secondary-foreground))',
