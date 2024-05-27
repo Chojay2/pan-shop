@@ -53,6 +53,7 @@ function SetUpStoreForm() {
           <Formik
             initialValues={initialValues}
             onSubmit={(values) => submitStoreInfo(values)}
+            validationSchema={validationScheme}
           >
             {(props) => (
               <Form>

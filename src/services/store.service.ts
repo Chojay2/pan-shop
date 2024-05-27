@@ -2,8 +2,6 @@ import useUsersAuthority from '@/hooks/use-users-authority';
 import { firebaseCollection } from '@/model/collection.model';
 import { ShopStatus } from '@/model/shop.model';
 import { addToDb, fetchDataFromDb, fetchDataID } from '@/services/api.service';
-import { RootState } from '@/state/store';
-import { useSelector } from 'react-redux';
 import { toast } from 'sonner';
 
 export default abstract class StoreService {
@@ -26,5 +24,12 @@ export default abstract class StoreService {
     } else if(isSeller && uid) {
       return fetchDataID(firebaseCollection.Stores, uid);
     }
+  }
+
+  static addProduct = async (productInfo) => {
+    toast.loading('adding your product...', { id: 'loading' });
+    await addToDb(productInfo, firebaseCollection.Products);
+    toast.dismiss('loading');
+    toast.success('product added successfully');
   }
 }

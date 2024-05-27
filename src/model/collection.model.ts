@@ -1,4 +1,5 @@
 export enum firebaseCollection  {
     Users = 'users',
-    Stores = 'stores'
+    Stores = 'stores',
+    Products = 'products'
 }

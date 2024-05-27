@@ -4,6 +4,7 @@ import { useField } from 'formik';
 
 export interface PdInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
+  name: string;
   label?: string;
 }
 
